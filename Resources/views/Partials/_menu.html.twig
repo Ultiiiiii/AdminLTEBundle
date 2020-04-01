@@ -11,6 +11,15 @@
             <i class="fas fa-angle-left pull-right"></i>
         </span>
     {% endif %}
+    {% if item.getExtra('label-extras', null) is not null %}
+        <span class="pull-right-container">
+            {% for labelExtra in item.getExtra('label-extras')  %}
+                <small class="label pull-right bg-{{ labelExtra.color }}">
+                    {{ labelExtra.content|default('small') }}
+                </small>
+            {% endfor %}
+        </span>
+    {% endif %}
 {% endblock %}
 
 {% block list %}
